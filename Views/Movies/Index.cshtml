@@ -1,28 +1,28 @@
 @model IEnumerable<MvcMovie.Models.Movie>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Filmes";
 }
 
-<h1>Index</h1>
+<h1>Filmes</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Criar novo Filme</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Title)
+                Título
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ReleaseDate)
+                Data de Lançamento
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Genre)
+                Gênero
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Price)
+                Preço
             </th>
             <th></th>
         </tr>
@@ -40,12 +40,12 @@
                 @Html.DisplayFor(modelItem => item.Genre)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Price)
+                R$ @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
             </td>
         </tr>
 }
