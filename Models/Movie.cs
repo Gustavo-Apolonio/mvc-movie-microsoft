@@ -16,5 +16,7 @@ namespace MvcMovie.Models
 
         [Column(TypeName = "double(18, 2)")]
         public double Price { get; set; }
+
+        public string Rating { get; set; }
     }
 }
