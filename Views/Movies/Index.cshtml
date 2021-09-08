@@ -1,4 +1,4 @@
-@model IEnumerable<MvcMovie.Models.Movie>
+@model MvcMovie.Models.MovieGenreViewModel
 
 @{
     ViewData["Title"] = "Filmes";
@@ -9,6 +9,18 @@
 <p>
     <a asp-action="Create">Criar novo Filme</a>
 </p>
+<form asp-controller="Movies" asp-action="Index" method="get">
+    <p>
+        <select asp-for="MovieGenre" asp-items="Model.Genres">
+            <option value="">
+                All
+            </option>
+        </select>
+
+        Título do Filme: <input type="text" name="SearchString" />
+        <input type="submit" value="Filtrar" />
+    </p>
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -28,7 +40,7 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.Movies) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
