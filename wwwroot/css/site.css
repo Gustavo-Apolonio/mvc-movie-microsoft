@@ -71,10 +71,14 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 
+main {
+  height: 78vh;
+}
+
 /* My CSS */
 
 .overHeight {
-  max-height: 24em;
+  max-height: 17.5em;
   overflow-y: auto;
 }
 
@@ -95,4 +99,12 @@ body {
   position: sticky;
   top: 0;
   background-color: var(--info);
+}
+
+tbody {
+  max-height: 10vh;
+}
+
+*::-webkit-scrollbar {
+  width: 0em;
 }

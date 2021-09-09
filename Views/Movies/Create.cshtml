@@ -8,14 +8,14 @@
 
 <h4>Filme</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="ml-auto w-100 h-75 row">
+    <form asp-action="Create" class="row w-100">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col">
             <div class="form-group">
-                <label asp-for="Title" class="control-label">Título</label>
-                <input asp-for="Title" class="form-control" autocomplete="off" />
-                <span asp-validation-for="Title" class="text-danger"></span>
+            <label asp-for="Title" class="control-label">Título</label>
+            <input asp-for="Title" class="form-control" autocomplete="off" />
+            <span asp-validation-for="Title" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ReleaseDate" class="control-label">Data de Lançamento</label>
@@ -27,25 +27,29 @@
                 <input asp-for="Genre" class="form-control" autocomplete="off" />
                 <span asp-validation-for="Genre" class="text-danger"></span>
             </div>
+        </div>
+        <div class="col">
             <div class="form-group">
                 <label asp-for="Price" class="control-label">Preço</label>
                 <input asp-for="Price" class="form-control" autocomplete="off" />
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="mb-5 form-group">
                 <label asp-for="Rating" class="control-label">Avaliação</label>
                 <input asp-for="Rating" class="form-control" autocomplete="off" />
                 <span asp-validation-for="Rating" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Criar" class="btn btn-primary" />
+                <input type="submit" value="Criar" class="btn btn-success btn-block" />
             </div>
-        </form>
-    </div>
+        </div>
+    </form>
 </div>
 
-<div>
-    <a asp-action="Index">Voltar a Lista</a>
+<div class="row align-items-center justify-content-end">
+    <h5>
+        <a asp-action="Index" class="text-info">Voltar a Lista</a>
+    </h5>
 </div>
 
 @section Scripts {
