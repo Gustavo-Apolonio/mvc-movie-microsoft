@@ -1,0 +1,15 @@
+# Block all site from all bots
+User-agent: *
+Disallow: /
+
+# Disallows
+User-agent: *
+Disallow: /Data/
+Disallow: /Migrations/
+Disallow: /Model/
+Disallow: /Properties/
+
+# Allows
+User-agent: *
+Allow: /Controllers/
+Allow: /Views/
