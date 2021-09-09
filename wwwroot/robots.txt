@@ -13,3 +13,6 @@ Disallow: /Properties/
 User-agent: *
 Allow: /Controllers/
 Allow: /Views/
+Allow: /wwwroot/
+
+Sitemap: http://{ip}/sitemap.xml
