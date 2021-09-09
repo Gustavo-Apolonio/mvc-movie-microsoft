@@ -11,10 +11,12 @@ namespace MvcMovie.Controllers
         }
 
         // GET: /HelloWorld/Welcome
-        // Requires using System.Text.Encodings.Web;
         public IActionResult Welcome(string name, int numTimes = 1)
         {
-            ViewData["Message"] = $"Olá {name}";
+            if (name == string.Empty || name == null) name = "Mundo";
+            else name = name.Trim();
+
+            ViewData["Message"] = $"Olá {name}!";
             ViewData["NumTimes"] = numTimes;
 
             return View();

@@ -1,7 +1,25 @@
+@model MvcMovie.Models.HelloWorld
+
 @{
-    ViewData["Title"] = "Lista de Filmes";
+    ViewData["Title"] = "Olá Mundo";
 }
 
-<h2>Minha lista de filmes</h2>
+<h2>Olá Mundo!</h2>
 
-<p>Olá direto de nosso Template da View</p>
+<p>Olá direto de nosso <strong>template</strong> das <span title="Visualizações">views</span>...</p>
+
+<form asp-action="Welcome">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Qual o seu nome?</label>
+        <input asp-for="Name" class="form-control" autocomplete="off" maxlength="95" oninvalid="this.setCustomValidity('O nome pode conter somente 95 caracteres.')" oninput="this.setCustomValidity('')" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NumTimes" class="control-label">Quantas vezes quer rodar isso?</label>
+        <input asp-for="NumTimes" class="form-control" autocomplete="off" min="0" max="24" oninvalid="this.setCustomValidity('Informe um número entre 0 e 24.')" oninput="this.setCustomValidity('')" />
+    </div>
+    <hr />
+    <div class="form-group">
+        <input type="submit" value="Ir" class="btn btn-outline-success btn-block" />
+        <input type="reset" value="Resetar" class="btn btn-outline-danger btn-block" />
+    </div>
+</form>
