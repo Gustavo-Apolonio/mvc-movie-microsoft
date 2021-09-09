@@ -6,66 +6,77 @@
 
 <h1>Filmes</h1>
 
-<p>
-    <a asp-action="Create">Criar novo Filme</a>
-</p>
+<h3>
+    <a asp-action="Create" class="text-info">Criar novo Filme</a>
+</h3>
+
 <form asp-controller="Movies" asp-action="Index" method="get">
-    <p>
-        <select asp-for="MovieGenre" asp-items="Model.Genres">
+    <div class="form-group">
+        <select class="form-control" asp-for="MovieGenre" asp-items="Model.Genres">
+            <option value="" disabled selected>
+                Gênero
+            </option>
             <option value="">
                 Todos
             </option>
         </select>
-
-        Título do Filme: <input type="text" name="SearchString" />
-        <input type="submit" value="Filtrar" />
-    </p>
+    </div>
+    <div class="form-group">
+        <input type="text" name="SearchString" class="form-control" autocomplete="off" placeholder="Título do Filme" />
+    </div>
+    <input type="submit" value="Buscar" class="btn btn-block btn-outline-info mb-3" />
 </form>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Título
-            </th>
-            <th>
-                Data de Lançamento
-            </th>
-            <th>
-                Gênero
-            </th>
-            <th>
-                Preço
-            </th>
-            <th>
-                Avaliação
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Movies) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReleaseDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Genre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price) M
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rating)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="overHeight">
+    <table class="table table-striped table-hover table-borderless myTable">
+        <thead class="myThead">
+            <tr>
+                <th>
+                    Título
+                </th>
+                <th>
+                    Data de Lançamento
+                </th>
+                <th>
+                    Gênero
+                </th>
+                <th>
+                    Preço
+                </th>
+                <th>
+                    Avaliação
+                </th>
+                <th>
+                    @* <a asp-action="DeleteAll" class="btn btn-outline-danger btn-sm btn-block">Deletar</a> 
+                        Continuar daqui ...
+                    *@
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.Movies) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReleaseDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price) M
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="text-warning fw-bold">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="text-info">Detalhes</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="text-danger">Deletar</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
