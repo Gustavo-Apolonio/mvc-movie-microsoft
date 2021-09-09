@@ -44,6 +44,8 @@ namespace MvcMovie.Controllers
                 Movies = await movies.ToListAsync()
             };
 
+            ViewData["MoviesCount"] = movieGenreVM.Movies.Count;
+
             return View(movieGenreVM);
         }
 
@@ -172,6 +174,32 @@ namespace MvcMovie.Controllers
         private bool MovieExists(int id)
         {
             return _context.Movie.Any(e => e.Id == id);
+        }
+
+        // GET: Movies/DeleteAll
+        public async Task<IActionResult> DeleteAll()
+        {
+            var movies = await (from m in _context.Movie
+                              select m)
+                              .ToListAsync();
+
+            ViewData["MoviesCount"] = movies.Count;
+
+            return View();
+        }
+
+        // POST: Movies/DeleteAll
+        [HttpPost, ActionName("DeleteAll")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteAll(bool notUsed)
+        {
+            var movies = from m in _context.Movie
+                         select m;
+
+            _context.RemoveRange(movies);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }

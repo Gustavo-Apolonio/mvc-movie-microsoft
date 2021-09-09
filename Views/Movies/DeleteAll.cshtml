@@ -1,0 +1,21 @@
+@{
+    ViewData["Title"] = "Deletar Filmes";
+}
+
+<h1>Deletar Filmes</h1>
+
+@if ((int)@ViewData["MoviesCount"] <= 1)
+{
+    <h3>Você tem certeza que quer deletar o filme?</h3>
+}
+else
+{
+    <h3>Você tem certeza que quer deletar todos os @ViewData["MoviesCount"] filmes?</h3>
+}
+
+<hr />
+<form asp-action="DeleteAll" method="post">
+    <input type="submit" value="Sim, tenho certeza!" class="btn btn-block btn-sm btn-outline-danger" />
+    <a asp-action="Index" class="btn btn-block btn-info">Não! Quero voltar à listagem</a>
+</form>
+

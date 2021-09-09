@@ -48,9 +48,14 @@
                     Avaliação
                 </th>
                 <th>
-                    @* <a asp-action="DeleteAll" class="btn btn-outline-danger btn-sm btn-block">Deletar</a> 
-                        Continuar daqui ...
-                    *@
+                    @if((int)@ViewData["MoviesCount"] >= 1)
+                    {
+                        <a asp-action="DeleteAll" class="btn btn-outline-danger btn-sm btn-block">Deletar</a> 
+                    }
+                    else
+                    {
+                        <a asp-action="DeleteAll" class="btn btn-outline-danger btn-sm btn-block disabled">Deletar</a>
+                    } 
                 </th>
             </tr>
         </thead>
