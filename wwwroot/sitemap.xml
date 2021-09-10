@@ -63,4 +63,10 @@
             <image:loc>http://{ip}/favicon.ico</image:loc>
         </image:image>
    </url>
+   <url>
+        <loc>https://{ip}/</loc>
+        <image:image>
+            <image:loc>http://{ip}/assets/banner.png</image:loc>
+        </image:image>
+   </url>
 </urlset>

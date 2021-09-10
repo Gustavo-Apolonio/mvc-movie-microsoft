@@ -8,6 +8,7 @@ Disallow: /Data/
 Disallow: /Migrations/
 Disallow: /Model/
 Disallow: /Properties/
+Disallow: /wwwroot/assets/images/banner.png
 
 # Allows
 User-agent: *
