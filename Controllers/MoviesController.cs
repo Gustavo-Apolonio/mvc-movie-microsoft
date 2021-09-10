@@ -49,6 +49,7 @@ namespace MvcMovie.Controllers
             return View(movieGenreVM);
         }
 
+        //  POST: /Movies?searchString=string
         [HttpPost]
         public string Index(string searchString, bool notUsed)
         {

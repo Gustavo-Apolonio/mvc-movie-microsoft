@@ -29,8 +29,8 @@ namespace MvcMovie.Models
         public double Price { get; set; }
 
         [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$", ErrorMessage = "O primeiro caractere precisa ser uma letra maiúscula.")]
-        [StringLength(15, ErrorMessage = "O tamanho da avaliação não pode passar de 15 caracteres.")]
-        [Required(ErrorMessage = "A avaliação é obrigatório!")]
+        [StringLength(15, ErrorMessage = "O tamanho da classificação indicativa não pode passar de 15 caracteres.")]
+        [Required(ErrorMessage = "A classificação indicativa é obrigatório!")]
         public string Rating { get; set; }
     }
 }

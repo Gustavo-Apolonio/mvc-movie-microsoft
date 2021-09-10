@@ -45,12 +45,16 @@
                     Preço
                 </th>
                 <th>
-                    Avaliação
+                    Classificação Indicativa
                 </th>
                 <th>
-                    @if((int)@ViewData["MoviesCount"] >= 1)
+                    @if((int)@ViewData["MoviesCount"] >= 2)
                     {
-                        <a asp-action="DeleteAll" class="btn btn-outline-danger btn-sm btn-block">Deletar</a> 
+                        <a asp-action="DeleteAll" class="btn btn-outline-danger btn-sm btn-block">Deletar todos</a> 
+                    }
+                    else if ((int)@ViewData["MoviesCount"] >= 1)
+                    {
+                        <a asp-action="DeleteAll" class="btn btn-outline-danger btn-sm btn-block">Deletar filme</a>
                     }
                     else
                     {
@@ -77,7 +81,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Rating)
                 </td>
-                <td>
+                <td class="text-center">
                     <a asp-action="Edit" asp-route-id="@item.Id" class="text-warning fw-bold">Editar</a> |
                     <a asp-action="Details" asp-route-id="@item.Id" class="text-info">Detalhes</a> |
                     <a asp-action="Delete" asp-route-id="@item.Id" class="text-danger">Deletar</a>
