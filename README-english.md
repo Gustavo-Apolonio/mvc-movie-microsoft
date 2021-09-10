@@ -54,7 +54,10 @@ $ cd mvc-movie-microsoft
 # If you want to edit the code, open VSCode with
 $ code .
 
-# Start server in terminal
+# Build the project, to retore the packages
+$ dotnet build
+
+# Then start server in terminal
 $ dotnet run
 
 # Server will start on port:5001 - access <http://localhost:5001>

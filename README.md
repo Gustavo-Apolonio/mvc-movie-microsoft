@@ -54,7 +54,10 @@ $ cd mvc-movie-microsoft
 # Caso queira editar algum código, abra o VsCode com
 $ code .
 
-# No terminal ainda, inicie o server
+# 'Builde' o projeto, para puxar os pacotes necessário novamente
+$ donet build
+
+# E então, no terminal ainda, inicie o server
 $ dotnet run
 
 # O servidor inciará na porta:5001 - acesse <http://localhost:5001>
