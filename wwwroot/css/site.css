@@ -108,3 +108,14 @@ tbody {
 *::-webkit-scrollbar {
   width: 0em;
 }
+
+@media (min-height: 650px) {
+  .overHeight {
+    max-height: 27em;
+    overflow-y: auto;
+  }
+
+  main {
+    height: 83vh;
+  }
+}
