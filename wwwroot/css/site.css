@@ -30,7 +30,8 @@ a {
 html {
   font-size: 14px;
 }
-@media (min-width: 768px) {
+
+@media screen and (min-width: 768px) {
   html {
     font-size: 16px;
   }
@@ -109,7 +110,7 @@ tbody {
   width: 0em;
 }
 
-@media (min-height: 650px) {
+@media screen and (min-height: 650px) {
   .overHeight {
     max-height: 27em;
     overflow-y: auto;
