@@ -3,22 +3,31 @@
     ViewData["Title"] = "Erro";
 }
 
-<h1 class="text-danger">Erro!</h1>
+<h1 class="text-danger">Ops... Erro @ViewData["ErrorCode"]</h1>
 <h2 class="text-danger">Um erro ocorreu enquanto processava seu pedido.</h2>
 
-@if (Model.ShowRequestId)
-{
-    <p>
-        <strong>ID do Pedido:</strong> <code>@Model.RequestId</code>
-    </p>
-}
+<h3>@ViewData["ErrorMessage"]</h3>
 
-<h3>Modo de Desenvolvimento</h3>
-<p>
-    O ambiente de <strong>Desenvolvimento</strong> será mais visualizado com informações mais detalhadas sobre o erro que ocorreu.
-</p>
-<p>
-    <strong>O ambiente de desenvolvimento não pode ser ativado em aplicações já em Deploy.</strong>
-    Pode resultar na visualização de informações sensíveis para usuários além das exeções.
-    Para um debugging local, ative o ambiente de <strong>Desenvolvimento</strong> 'setando' a variável de ambiente <strong>ASPNETCORE_ENVIRONMENT</strong> para <strong>Development</strong> e reinicie o aplicativo.
-</p>
+<a class="btn btn-info mt-2 mb-4" asp-area="" asp-controller="Movies" asp-action="Index">Voltar a Lista</a>
+
+<details>
+    <summary class="h4">
+        Modo de Administração
+    </summary>
+
+    @if (Model.ShowRequestId)
+    {
+        <p>
+            <strong>ID do Pedido:</strong> <code>@Model.RequestId</code>
+        </p>
+    }
+
+    <p>
+        O ambiente de <strong>Desenvolvimento</strong> será mais visualizado com informações mais detalhadas sobre o erro que ocorreu.
+    </p>
+    <p>
+        <strong>O ambiente de desenvolvimento não pode ser ativado em aplicações já em Deploy.</strong>
+        Pode resultar na visualização de informações sensíveis para usuários além das exeções.
+        Para um debugging local, ative o ambiente de <strong>Desenvolvimento</strong> 'setando' a variável de ambiente <strong>ASPNETCORE_ENVIRONMENT</strong> para <strong>Development</strong> e reinicie o aplicativo.
+    </p>
+</details>

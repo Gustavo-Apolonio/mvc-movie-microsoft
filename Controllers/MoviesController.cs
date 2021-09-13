@@ -61,14 +61,22 @@ namespace MvcMovie.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                ViewData["ErrorCode"] = 400;
+                ViewData["ErrorMessage"] = "ID inválido!";
+                return View("~/Views/Shared/Error.cshtml",
+                            new Models.ErrorViewModel()
+                );
             }
 
             var movie = await _context.Movie
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (movie == null)
             {
-                return NotFound();
+                ViewData["ErrorCode"] = 404;
+                ViewData["ErrorMessage"] = "Filme não encontrado!";
+                return View("~/Views/Shared/Error.cshtml",
+                            new Models.ErrorViewModel()
+                );
             }
 
             return View(movie);
@@ -99,13 +107,21 @@ namespace MvcMovie.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                ViewData["ErrorCode"] = 400;
+                ViewData["ErrorMessage"] = "ID inválido!";
+                return View("~/Views/Shared/Error.cshtml",
+                            new Models.ErrorViewModel()
+                );
             }
 
             var movie = await _context.Movie.FindAsync(id);
             if (movie == null)
             {
-                return NotFound();
+                ViewData["ErrorCode"] = 404;
+                ViewData["ErrorMessage"] = "Filme não encontrado!";
+                return View("~/Views/Shared/Error.cshtml",
+                            new Models.ErrorViewModel()
+                );
             }
             return View(movie);
         }
@@ -117,7 +133,11 @@ namespace MvcMovie.Controllers
         {
             if (id != movie.Id)
             {
-                return NotFound();
+                ViewData["ErrorCode"] = 400;
+                ViewData["ErrorMessage"] = "ID de edição não condiz com ID do filme.";
+                return View("~/Views/Shared/Error.cshtml",
+                            new Models.ErrorViewModel()
+                );
             }
 
             if (ModelState.IsValid)
@@ -131,7 +151,11 @@ namespace MvcMovie.Controllers
                 {
                     if (!MovieExists(movie.Id))
                     {
-                        return NotFound();
+                        ViewData["ErrorCode"] = 404;
+                        ViewData["ErrorMessage"] = "Filme não encontrado!";
+                        return View("~/Views/Shared/Error.cshtml",
+                                    new Models.ErrorViewModel()
+                        );
                     }
                     else
                     {
@@ -148,14 +172,22 @@ namespace MvcMovie.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                ViewData["ErrorCode"] = 400;
+                ViewData["ErrorMessage"] = "ID inválido.";
+                return View("~/Views/Shared/Error.cshtml",
+                            new Models.ErrorViewModel()
+                );
             }
 
             var movie = await _context.Movie
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (movie == null)
             {
-                return NotFound();
+                ViewData["ErrorCode"] = 404;
+                ViewData["ErrorMessage"] = "Filme não encontrado!";
+                return View("~/Views/Shared/Error.cshtml",
+                            new Models.ErrorViewModel()
+                );
             }
 
             return View(movie);
@@ -181,7 +213,7 @@ namespace MvcMovie.Controllers
         public async Task<IActionResult> DeleteAll()
         {
             var movies = await (from m in _context.Movie
-                              select m)
+                                select m)
                               .ToListAsync();
 
             ViewData["MoviesCount"] = movies.Count;
